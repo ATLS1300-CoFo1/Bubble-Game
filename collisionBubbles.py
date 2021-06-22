@@ -8,21 +8,19 @@ Select a turtle - this code allows users to click and drag on a turtle
 """
 
 
-import random
-from turtle import * #import the library of commands that you'd like to use
-colormode(255)
+import random, turtle 
+turtle.colormode(255)
 
 #Create a panel to draw on. 
-setup()
-panel = Screen()
+turtle.setup()
+panel = turtle.Screen()
 panel.clear()
 w = 600 # width of panel
 h = 600 # height of panel
 panel.setup(width=w, height=h) #600 x 600 is a decent size to work on. 
 #You can experiment by making it the size of your screen or super tiny!
 
-#Don't change this line (puts (0,0) at upper left corner)
-panel.setworldcoordinates(0, w, h, 0)
+#panel.setworldcoordinates(0, w, h, 0)
 
 #========================MAKE VARIABLES=======================
 panel.bgcolor('blue')
@@ -33,8 +31,8 @@ turtList = [] # create an empty list
         
 def moveBubbles(tList, stride=2):
     '''Animates bubble movement when called inside the game loop.
-    tList - the list of turtles to move
-    stride - the number of pixels to take per frame. higher numbers are faster'''
+    tList - the list of turtles to move (type = list)
+    stride - the number of pixels to take per frame. higher numbers are faster (type = int)'''
     for i in range(len(tList)):
         t = turtList[i] # pull out the turtle...
         t.forward(stride)
@@ -74,7 +72,7 @@ def isCollision(turt,target,buffer=30):
 tracer(0) #turn off animation
 
 for i in range(numBubbles):
-    turt = Turtle(shape='circle') #set our bubble shape
+    turt = turtle.Turtle(shape='circle') #set our bubble shape
     turt.color('black','cyan') #set the color
     turt.up() #pick up the pen
     turt.shapesize(5) # make it a random size
@@ -110,8 +108,8 @@ while run:
     if turtList[0].xcor()<0 or turtList[0].xcor()>w:
         run = False
         
-    delay(fps) #set frame rate
-    update() # update the image with each "frame"
+    turtle.delay(fps) #set frame rate
+    panel.update() # update the image with each "frame"
 
 panel.mainloop()
         

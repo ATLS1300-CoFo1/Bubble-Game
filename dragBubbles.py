@@ -9,12 +9,12 @@ Select a turtle - this code allows users to click and drag on a turtle
 
 
 import random
-from turtle import * #import the library of commands that you'd like to use
-colormode(255)
+import turtle 
+turtle.colormode(255)
 
 #Create a panel to draw on. 
-setup()
-panel = Screen()
+turtle.setup()
+panel = turtle.Screen()
 panel.clear()
 w = 600 # width of panel
 h = 600 # height of panel
@@ -22,7 +22,7 @@ panel.setup(width=w, height=h) #600 x 600 is a decent size to work on.
 #You can experiment by making it the size of your screen or super tiny!
 
 #Don't change this line (puts (0,0) at upper left corner)
-panel.setworldcoordinates(0, w, h, 0)
+#panel.setworldcoordinates(0, w, h, 0)
 
 #========================MAKE VARIABLES=======================
 panel.bgcolor('blue')
@@ -52,7 +52,7 @@ def delBubble(x,y):
 tracer(0) #turn off animation
 
 for i in range(numBubbles):
-    turt = Turtle(shape='circle') #set our bubble shape
+    turt = turtle.Turtle(shape='circle') #set our bubble shape
     turt.color('black','cyan') #set the color
     turt.up() #pick up the pen
     turt.shapesize(random.randint(3,5)) # make it a random size
@@ -85,8 +85,8 @@ while run:
     
 #    if T >= 300:
 #        run = False
-    delay(fps) #set frame rate
-    update() # update the image with each "frame"
+    turtle.delay(fps) #set frame rate
+    panel.update() # update the image with each "frame"
 
 panel.mainloop()
         

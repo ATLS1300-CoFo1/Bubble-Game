@@ -11,6 +11,7 @@ Select a turtle - this code allows users to click and drag on a turtle
 import random
 import turtle 
 turtle.colormode(255)
+turtle.tracer(0) #turn off animation
 
 #Create a panel to draw on. 
 turtle.setup()
@@ -48,8 +49,6 @@ def delBubble(x,y):
     #turtList.pop(selected)
 
 # Create list of turtles to act as bubble items
-
-tracer(0) #turn off animation
 
 for i in range(numBubbles):
     turt = turtle.Turtle(shape='circle') #set our bubble shape

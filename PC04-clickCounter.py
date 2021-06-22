@@ -7,20 +7,20 @@ Created on Fri Jun 26 11:28:53 2020
 Click counter - this code demonstrates how we can build a counter that determines clicks
 """
 
-from turtle import *
+import turtle
 
-colormode(255)
+turtle.colormode(255)
 
 #Create a panel to draw on. 
-setup()
-panel = Screen()
+turtle.setup()
+panel = turtle.Screen()
 panel.clear()
 w = 200 # width of panel
 h = 200 # height of panel
 panel.setup(width=w, height=h)
-panel.setworldcoordinates(0, w, h, 0)
+#panel.setworldcoordinates(0, w, h, 0)
 
-square = Turtle(shape='square')
+square = turtle.Turtle(shape='square')
 fillcolor = 'yellow'
 square.color('black',fillcolor)
 square.up()
@@ -44,7 +44,7 @@ def changeColor(x,y):
 # You can use clicked as a conditional statement for different tasks!
        
 panel.onclick(changeColor)
-listen()
+turtle.listen()
 
 
-done()
+turtle.done()

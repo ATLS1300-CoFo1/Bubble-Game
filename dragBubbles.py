@@ -43,6 +43,19 @@ def ifClicked(x,y):
             selected = i
             print(len(turtList),selected)
             break
+            
+def drag(x,y): 
+    """Correctly drags individual turtles in a list. Use in conjuction with ifClicked. You MUST use this code to stop backtracking glitch."""
+    # from https://www.geeksforgeeks.org/turtle-ondrag-function-in-python/
+    # stop backtracking
+    turtList[selected].ondrag(None) 
+  
+    # move the turtle's angle and direction 
+    # towards x and y
+    #turtList[selected].setheading(turtle.towards(x, y))
+    turtList[selected].goto(x, y)
+    
+    turtList[selected].ondrag(drag)
         
 def delBubble(x,y):
     turtList[selected].ht() #hide the turtle to "delete" it
@@ -79,8 +92,7 @@ while run:
     
     panel.onclick(ifClicked)
     thisBubble = turtList[selected]
-    thisBubble.ondrag(thisBubble.goto)
-    thisBubble.onrelease(delBubble)
+    thisBubble.ondrag(drag)
     
 #    if T >= 300:
 #        run = False
